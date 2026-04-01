@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario Libro Diario Fiberplus</title>
+  <!-- Conexión al CSS externo -->
+  <link rel="stylesheet" href="Diseño_formulario.css">
+</head>
+<body>
+  <h2>Libro Diario Fiberplus</h2>
+  <form id="libroDiario">
+
+    <!-- DATOS GENERALES -->
+    <fieldset>
+      <legend>Datos Generales</legend>
+      <label>Ciudad:</label>
+      <input type="text" name="ciudad" required>
+
+      <label>Supervisor:</label>
+      <input type="text" name="supervisor" required>
+
+      <label>Líder de cuadrilla:</label>
+      <input type="text" name="lider" required>
+
+      <label>Cliente:</label>
+      <select name="cliente" required>
+        <option value="TELCONET">TELCONET</option>
+        <option value="CNS">CNS</option>
+        <option value="PROCISA">PROCISA</option>
+        <option value="PUNTO NET">PUNTO NET</option>
+        <option value="ULTRATEL">ULTRATEL</option>
+        <option value="FIS">FIS</option>
+        <option value="OTROS">OTROS</option>
+      </select>
+    </fieldset>
+
+    <!-- FIBRA ÓPTICA -->
+    <fieldset>
+      <legend>Fibra Óptica</legend>
+      <label>¿Usa fibra óptica?</label>
+      <select name="fibra_optica">
+        <option value="Si">Sí</option>
+        <option value="No">No</option>
+      </select>
+
+      <label>Tipo de cable:</label>
+      <select name="tipo_cable_fibra">
+        <option value="AEREOS">Aéreos</option>
+        <option value="CANALIZADO">Canalizado</option>
+      </select>
+
+      <label>Código de bobina:</label>
+      <input type="text" name="codigo_bobina">
+
+      <label>Número de hilos:</label>
+      <select name="hilos">
+        <option value="2">2</option>
+        <option value="4">4</option>
+        <option value="6">6</option>
+        <option value="12">12</option>
+        <option value="24">24</option>
+        <option value="48">48</option>
+        <option value="96">96</option>
+        <option value="144">144</option>
+      </select>
+
+      <label>Metros despachados:</label>
+      <input type="number" name="fibra_despacho">
+
+      <label>Metros utilizados:</label>
+      <input type="number" name="fibra_utilizado">
+
+      <label>Punto inicial:</label>
+      <input type="text" name="fibra_punto_inicial">
+
+      <label>Punto final:</label>
+      <input type="text" name="fibra_punto_final">
+
+      <label>Metros devueltos:</label>
+      <input type="number" name="fibra_devuelto">
+    </fieldset>
+
+    <!-- CABLE COBRE -->
+    <fieldset>
+      <legend>Cable Cobre</legend>
+      <label>¿Usa cable de cobre?</label>
+      <select name="cable_cobre">
+        <option value="Si">Sí</option>
+        <option value="No">No</option>
+      </select>
+
+      <label>Tipo de cable:</label>
+      <select name="tipo_cable_cobre">
+        <option value="CAT5">CAT 5</option>
+        <option value="CAT6">CAT 6</option>
+        <option value="CAT6A">CAT 6A</option>
+      </select>
+
+      <label>Metros despachados:</label>
+      <input type="number" name="cobre_despacho">
+
+      <label>Metros utilizados:</label>
+      <input type="number" name="cobre_utilizado">
+
+      <label>Punto inicial:</label>
+      <input type="text" name="cobre_punto_inicial">
+
+      <label>Punto final:</label>
+      <input type="text" name="cobre_punto_final">
+
+      <label>Metros devueltos:</label>
+      <input type="number" name="cobre_devuelto">
+    </fieldset>
+
+    <!-- CABLE ACERADO -->
+    <fieldset>
+      <legend>Cable Acerado</legend>
+      <label>¿Usa cable acerado?</label>
+      <select name="cable_acerado">
+        <option value="Si">Sí</option>
+        <option value="No">No</option>
+      </select>
+
+      <label>Metros despachados:</label>
+      <input type="number" name="acerado_despacho">
+
+      <label>Metros utilizados:</label>
+      <input type="number" name="acerado_utilizado">
+
+      <label>Punto inicial:</label>
+      <input type="text" name="acerado_punto_inicial">
+
+      <label>Punto final:</label>
+      <input type="text" name="acerado_punto_final">
+
+      <label>Metros devueltos:</label>
+      <input type="number" name="acerado_devuelto">
+    </fieldset>
+
+    <!-- HERRAMIENTAS -->
+    <fieldset>
+      <legend>Herramientas y Materiales</legend>
+      <label>Grupo de material:</label>
+      <select name="grupo_material">
+        <option value="Amarras">Amarras o correas plásticas</option>
+        <option value="Anillos">Anillos / Argollas</option>
+        <option value="Brazo Farol">Brazo Farol</option>
+        <option value="Cajas NAP">Cajas / NAP</option>
+        <option value="Cintas">Cintas</option>
+        <option value="Espirales">Espirales</option>
+        <option value="Herrajes">Herrajes</option>
+        <option value="Identificadores">Identificadores</option>
+        <option value="Postes">Postes</option>
+        <option value="Splitters">Splitters</option>
+        <option value="EPP">EPP y seguridad</option>
+        <option value="Herramientas Manuales">Herramientas manuales</option>
+        <option value="Herramientas Eléctricas">Herramientas eléctricas</option>
+        <option value="Equipos Fibra">Equipos de fibra óptica</option>
+        <option value="Apoyo Campo">Equipos de apoyo en campo</option>
+      </select>
+
+      <label>Cantidad:</label>
+      <input type="number" name="cantidad_material">
+    </fieldset>
+
+    <!-- BOTÓN -->
+    <button type="submit">Enviar</button>
+  </form>
+
+  <p id="estado"></p>
+
+  <script>
+    const form = document.getElementById("libroDiario");
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      const data = {};
+      const formData = new FormData(form);
+      formData.forEach((value, key) => data[key] = value);
+
+      // Hora automática
+      data.hora_respuesta = new Date().toISOString();
+
+      // Ubicación
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(pos => {
+          data.ubicacion = `${pos.coords.latitude},${pos.coords.longitude}`;
+          enviarDatos(data);
+        }, err => {
+          data.ubicacion = "No disponible";
+          enviarDatos(data);
+        });
+      } else {
+        data.ubicacion = "No soportado";
+        enviarDatos(data);
+      }
+    });
+
+    function enviarDatos(data) {
+      fetch("TU_URL_DE_APPS_SCRIPT", {
+        method: "POST",
+        body: JSON.stringify(data)
+      })
+      .then(res => res.text())
+      .then(txt => {
+        document.getElementById("estado").innerText = "Respuesta registrada correctamente.";
+      })
+      .catch(err => {
+        document.getElementById("estado").innerText = "Error al enviar: " + err;
+      });
+    }
+  </script>
+</body>
+</html>
